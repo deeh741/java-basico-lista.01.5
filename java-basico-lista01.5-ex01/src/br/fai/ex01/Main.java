@@ -19,38 +19,53 @@ public class Main {
 		
 			Scanner scanner = new Scanner(System.in);
 			
-			System.out.println("Digite primeiro valor: ");
-			int n1 = scanner.nextInt();
+			int valor1 = 0;
+			int valor2 = 0;
+			int valor3 = 0;
+			int valor4 = 0;
 			
-			System.out.println("Digite segundo valor: ");
-			int n2 = scanner.nextInt();
+			int i = 0;
+			while (i <4) {
+				System.out.print("Digite o valor " + i + ": " );
+				int valorLido = scanner.nextInt();
+				
+				switch (i) {
+				case 0: 
+					valor1 = valorLido;
+					break;
+				
+				case 1: 
+					valor2 = valorLido;			
+					break;
+				case 2: 
+					valor3 = valorLido;
+					break;
+				case 3: 
+					valor4 = valorLido;
+					break;
+				default:
+					System.out.println("Valor invalido");
+					break;
+				}
+				i += 1;
+			}
 			
-			System.out.println("Digite terceiro valor: ");
-			int n3 = scanner.nextInt();
-			
-			System.out.println("Digite quarto valor: ");
-			int n4 = scanner.nextInt();
-			
-			
-			calculoMaior(n1, n2, n3, n4);
+			calculoMaior(valor1, valor2, valor3, valor4);
 			
 		}
 		
-	public void calculoMaior(int n1, int n2, int n3, int n4) {
-		
-		int menor1 = Math.min(n1, n2);
-		int menor2 = Math.min(n3, n4);
-		int menor = Math.min(menor1, menor2);
-		
-		int maior1 = Math.max(n1, n2);
-		int maior2 = Math.max(n3, n4);
-		int maior = Math.max(maior1, maior2);
-		
-		System.out.println("Menor valor: " + menor);
-		System.out.println("Maior valor: " + maior);
+	public void calculoMaior(int valor1, int valor2, int valor3, int valor4) {
 		
 		
-		if (maior > 50) {
+		int maiorValor = Math.max(valor1, Math.max(valor2, Math.max(valor3, valor4)));
+		int menorValor = Math.min(valor1, Math.min(valor2, Math.min(valor3, valor4)));
+		
+		
+		System.out.println("Menor valor: " + menorValor);
+		System.out.println("Maior valor: " + maiorValor);
+		
+		
+		if (maiorValor > 50) {
 			System.out.println("Valor muito alto");
 		} else {
 			System.out.println("valor normal");
