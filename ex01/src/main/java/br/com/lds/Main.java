@@ -1,6 +1,8 @@
 package br.com.lds;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -35,9 +37,38 @@ public class Main {
 	}
 
 	private void apurarVotos() {
-		
-		List<Candidato> candidatos - ArrayList<Candidato>();
-		
+
+		List<Candidato> candidatos = new ArrayList<Candidato>();
+
+		for (Candidato candidato : mapaDeCandidatos.values()) {
+			candidatos.add(candidato);
+		}
+
+		candidatos.sort((a, b) -> {
+			return b.getNumeroDeVotos() - a.getNumeroDeVotos();
+		});
+
+		Candidato candidatoEleito = candidatos.get(0);
+
+		if (candidatoEleito.getNumeroDeVotos() == 0) {
+			System.out.println("Nenhum camdidato foi votado.");
+			return;
+		}
+
+		System.out.println("O candidato eleite eh: " + candidatoEleito.getNome() + "com"
+				+ candidatoEleito.getNumeroDeVotos() + "votos");
+
+		System.out.println("-----------------------------");
+
+		for (int i = 0; i < candidatos.size(); i++) {
+
+			Candidato candidato = candidatos.get(i);
+
+			System.out
+					.println("Lugar " + (i + 1) + ": " + candidato.getNome() + " com " + candidato.getNumeroDeVotos());
+
+		}
+
 	}
 
 	private void registrarVoto(int voto) {
