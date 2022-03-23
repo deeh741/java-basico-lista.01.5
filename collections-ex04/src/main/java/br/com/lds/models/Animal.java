@@ -1,6 +1,6 @@
 package br.com.lds.models;
 
-public abstract class Animal {
+public class Animal {
 
 	public void som() {
 		System.out.println("Esse e o som padrao de um animal: zzzzzzz");
